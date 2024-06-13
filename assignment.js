@@ -10,23 +10,41 @@ Assessment Requirements
 
 // create a variable to hold your NFT's
 
+let nftCollection=[];
 // this function will take in some values as parameters, create an
 // NFT object using the parameters passed to it for its metadata, 
 // and store it in the variable above.
-function mintNFT () {
-
+function mintNFT(name, artist, price) {
+    const nft = {
+        name: name,
+        artist: artist,
+        price: price
+    };
+    nftCollection.push(nft);
 }
+
 
 // create a "loop" that will go through an "array" of NFT's
 // and print their metadata with console.log()
 function listNFTs () {
-
+    for (let i = 0; i < nftCollection.length; i++) {
+        console.log("Name : " + nftCollection[i].name);
+        console.log("Artist : " + nftCollection[i].artist);
+        console.log("Price : " + nftCollection[i].price);
+        console.log("------------");
+    }
 }
 
 // print the total number of NFTs we have minted to the console
 function getTotalSupply() {
-
+    return nftCollection.length;
 }
 
 // call your functions below this line
 
+mintNFT("NFT 1", "Prashant", 1999);
+mintNFT("NFT 2", "Shubham",399);
+mintNFT("NFT 3", "Robin", 1299);
+
+listNFTs();
+console.log("Total Supply: " + getTotalSupply());
